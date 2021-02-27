@@ -13,6 +13,9 @@ class FileController extends Controller
     {
         $this->middleware('auth');
     }
+
+
+
     public function create()
     {
         return view('files.create');

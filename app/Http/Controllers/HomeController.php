@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // return home for all the user
+        $userId = Auth::user()->id;
+        $files = File::where('user_id', $userId)->simplePaginate(5);
+
+        return view('home')->with('files', $files);
     }
 }

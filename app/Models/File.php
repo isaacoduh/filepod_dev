@@ -14,4 +14,6 @@ class File extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    protected $dates = ['created_at', 'updated_at'];
 }

@@ -14,10 +14,45 @@
                         </div>
                     @endif
 
+
+
                     {{ __('You are logged in!') }}
                 </div>
             </div>
         </div>
     </div>
+    <hr/>
+    <a href="{{route('file.create')}}">Add a file</a>
+    <table class="table table-respoonsive table-bordered mb-5" >
+        <thead>
+            <tr class="table-success">
+                <th>File Name</th>
+                <th>Size (MB)</th>
+                <th>File Format</th>
+                <th>Date Uploaded</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($files as $file)
+                <tr>
+                    <td>{{$file->name}}</td>
+                    <td>{{$file->file_size ? $file->file_size : ''}}</td>
+                    <td>{{$file->file_format ? $file->file_format: ''}}</td>
+                    <td>{{$file->created_at->diffForHumans()}}</td>
+                    <td>
+                        <a href="" class="btn btn-primary">View</a>
+                    </td>
+                </tr>
+            @endforeach
+
+        </tbody>
+
+    </table>
+
+    <div class="d-flex justify-content-center">
+
+    </div>
+    {{$files->links()}}
 </div>
 @endsection
