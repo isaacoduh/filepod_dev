@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('file', [App\Http\Controllers\FileController::class, 'create'])->name('file.create');
+Route::post('file', [App\Http\Controllers\FileController::class, 'store'])->name('file.store');
