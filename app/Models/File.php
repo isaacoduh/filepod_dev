@@ -9,4 +9,9 @@ class File extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'file_path'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
