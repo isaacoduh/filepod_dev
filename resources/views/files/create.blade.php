@@ -47,6 +47,12 @@
               <label class="" for="">Custom File Name</label>
           </div>
 
+          <div class="form-group">
+            <label class="" for="">Brief Description</label>
+            <textarea name="name" id="" cols="20" rows="5" class="form-control"></textarea>
+
+        </div>
+
             <div class="custom-file">
                 <input type="file" name="file" class="custom-file-input" id="chooseFile">
                 <label class="custom-file-label" for="chooseFile">Select file</label>

@@ -21,6 +21,11 @@
             </div>
         </div>
     </div>
+    @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
     <hr/>
     <a href="{{route('file.create')}}">Add a file</a>
     <table class="table table-respoonsive table-bordered mb-5" >
@@ -41,7 +46,7 @@
                     <td>{{$file->file_format ? $file->file_format: ''}}</td>
                     <td>{{$file->created_at->diffForHumans()}}</td>
                     <td>
-                        <a href="" class="btn btn-primary">View</a>
+                        <a href="{{route('file.show',['id' => $file->id])}}" class="btn btn-primary">View</a>
                     </td>
                 </tr>
             @endforeach

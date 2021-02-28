@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         // return home for all the user
         $userId = Auth::user()->id;
-        $files = File::where('user_id', $userId)->simplePaginate(5);
+        $files = File::where('user_id', $userId)->orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('home')->with('files', $files);
     }
