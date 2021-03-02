@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    {{-- <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
@@ -20,14 +20,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <strong>{{ $message }}</strong>
             </div>
           @endif
     <hr/>
-    <a href="{{route('file.create')}}">Add a file</a>
+    <a href="{{route('file.create')}}" type="button" class="btn btn-md btn-primary">Add a file</a>
+    <br><br>
     <table class="table table-respoonsive table-bordered mb-5" >
         <thead>
             <tr class="table-success">

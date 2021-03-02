@@ -26,6 +26,7 @@ class FileController extends Controller
     {
         $request->validate([
             'name' => 'required|max:20',
+            'description' => 'required|max:200',
             'file' => 'required|mimes:jpeg,png,jpg,gif,svg,docx,csv,txt,xlx,xls,pdf|max:8192'
         ]);
 
@@ -43,6 +44,7 @@ class FileController extends Controller
             // $filePath = $request->file->move(public_path('upload'), $fileName);
 
             $fileData->name = $request->name;
+            $fileData->description = $request->description;
             $fileData->file_size = $fileSizeMB;
             $fileData->file_format = $request->file('file')->getClientOriginalExtension();
             // $fileData->file_path = '/storage/' . $filePath;
@@ -66,13 +68,10 @@ class FileController extends Controller
     public function delete($id)
     {
 
-
-        // Storage::delete($pathToFile);
-        // return redirect('home')->with('success', 'File Deleted!');
         $file = File::findOrFail($id);
         $pathToFile = storage_path('app/' . $file->file_path);
         if ($file->delete()) {
-            // Storage::delete($pathToFile);
+
             if (file_exists($pathToFile)) {
                 unlink($pathToFile);
             } else {
@@ -87,7 +86,5 @@ class FileController extends Controller
         $filePath = $file->file_path;
         $pathToFile = storage_path('app/' . $file->file_path);
         return response()->download($pathToFile, $file->name);
-        // Storage::download($filePath, $file->name);
-        // return back()->with('success', 'File Downloaded!')->with('file', $file);
     }
 }

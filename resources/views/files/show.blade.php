@@ -34,8 +34,9 @@
         </div>
         <div class="col">
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <a href="{{route('home')}}" type="button" class="btn btn-outline-secondary"><i class="cil-arrow-left 3x"></i></a>
                 <a type="button" href="{{route('file.download',['id' => $file->id])}}" class="btn btn-success" data-bs-toggle="tooltip"><i class="cil-cloud-download 3x"></i></a>
-                <a type="button" href="{{route('file.edit',['id' => $file->id])}}" class="btn btn-primary"><i class="cil-clipboard"></i></a>
+                {{-- <a type="button" href="{{route('file.edit',['id' => $file->id])}}" class="btn btn-primary"><i class="cil-clipboard"></i></a> --}}
                 <form action="{{ route('file.destroy', $file->id) }}" method="POST">
 
 
