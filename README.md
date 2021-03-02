@@ -66,7 +66,7 @@ OR
 2. When all containers are up and running, enter the app container by executing the following command.
 
     ```
-    $ docker-compose exec blog_app bash
+    $ docker-compose exec app bash
     ```
 
 3. Install all composer packages included in composer.json
